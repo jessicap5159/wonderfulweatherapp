@@ -14,15 +14,18 @@
 
 <body>
     <h1 class="p-3 mb-2 bg-primary text-white" >Weather Dashboard</h1>
-    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search for a city..." title="Type in a category">
-    <button type="button" class="btn btn-primary" onclick="getWeather()"> <i class="fas fa-search-location"></i> Go</button>
-
+    <input type="text" id="mySearch"  placeholder="Search for a city..." title="Type in a category">
+    <button type="button" class="btn btn-primary" id="btn"> <i class="fas fa-search-location"></i> Go</button>
+<div id="savedCities"></div>
 <main>
     <div class="card w-50 mx-auto" id="current-city">
         <div class="card-body">
-          <h5 class="card-title">Current City</h5>
-          
-          
+          <h5 class="card-title">Current City:</h5>
+          <p id="cityName"></p> <p id="cityIcon"></p>
+          <h6>Temp (F):</h6><p id="cityTemp"></p>
+          <h6>Wind Speed (mph):</h6><p id="cityWind"></p>
+          <p id="cityUV"></p>
+         
         </div>
       </div>
       

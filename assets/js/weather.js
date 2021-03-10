@@ -1,78 +1,68 @@
-// Copied from lesson (Git-it-Done), amend for own purposes
+var cityInputEl = document.querySelector("#mySearch");
+var cities = [];
+var cityNameP = document.querySelector("#cityName");
+var cityTemp = document.querySelector("#cityTemp");
+var cityWind = document.querySelector("#cityWind");
+var cityUV = document.querySelector("#cityUV");
+var cityIcon = document.querySelector("#cityIcon");
+var savedCities = document.querySelector("#savedCities");
+var cityname;
+var citySubmitHandler = function (event) {
+
+    event.preventDefault();
+    console.log(cityNameP);
+    console.log(event);
+    console.log(cityInputEl);
+    cityname = cityInputEl.value.trim();
+
+    if (cityname) {
+        console.log(cityname);
+        getWeather(cityname);
+        cityInputEl.value = "";
+
+    } else {
+        //alert("Please enter a valid city name");
+    }
+};
+
+document.getElementById("btn").addEventListener("click", citySubmitHandler);
 
 
-var getWeather = function(cityname,statecode) {
-    // format the github api url
-    var apiUrl = `api.openweathermap.org/data/2.5/weather?q=${cityname},${statecode}&appid={e163478ea3e20c4862d83fd871a92ec2`;
-// done up to here?
-      
+
+
+
+var getWeather = function () {
+    // format the api url
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=e163478ea3e20c4862d83fd871a92ec2&units=imperial`;
+    // var apiForUV = https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key} ** need to get lat and long
+
+
+    // done up to here?
+
     // make a get request to url
     fetch(apiUrl)
-      .then(function(response) {
-        // request was successful
-        if (response.ok) {
-          console.log(response);
-          response.json().then(function(data) {
-            console.log(data);
-            displayRepos(data, user);
-          });
-        } else {
-          alert("Error: " + response.statusText);
-        }
-      })
-      .catch(function(error) {
-        alert("Unable to connect to GitHub");
-      });
-  };
+        .then(function (response) {
+            // request was successful
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    cities.push(cityname);
+                    localStorage.setItem("cities", JSON.stringify(cities));
+                    cityNameP.innerHTML = [data.name]
+                    // cityIcon.innerHTML = [data.weather[4]] *** How to get icon??
+             cityTemp.innerHTML = [data.main.temp] 
+           cityWind.innerHTML = [data.wind.speed]
+           // cityUV.innerHTML = [data.]
+           // date???
+            console.log(JSON.parse(localStorage.getItem("cities")));
 
+                });
+            } else {
+                alert("Error: " + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert("Unable to connect");
+        });
+};
 
-  var displayRepos = function(repos, searchTerm) {
-    // check if api returned any repos
-    if (repos.length === 0) {
-      repoContainerEl.textContent = "No repositories found.";
-      return;
-    }
-  
-    repoSearchTerm.textContent = searchTerm;
-  
-    // loop over repos
-    for (var i = 0; i < repos.length; i++) {
-      // format repo name
-      var repoName = repos[i].owner.login + "/" + repos[i].name;
-  
-      // create a link for each repo
-      var repoEl = document.createElement("a");
-      repoEl.classList = "list-item flex-row justify-space-between align-center";
-      repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
-  
-      // create a span element to hold repository name
-      var titleEl = document.createElement("span");
-      titleEl.textContent = repoName;
-  
-      // append to container
-      repoEl.appendChild(titleEl);
-  
-      // create a status element
-      var statusEl = document.createElement("span");
-      statusEl.classList = "flex-row align-center";
-  
-      // check if current repo has issues or not
-      if (repos[i].open_issues_count > 0) {
-        statusEl.innerHTML =
-          "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-      } else {
-        statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-      }
-  
-      // append to container
-      repoEl.appendChild(statusEl);
-  
-      // append container to the dom
-      repoContainerEl.appendChild(repoEl);
-    }
-  };
-  
-  // add event listeners to form and button container
-  userFormEl.addEventListener("submit", formSubmitHandler);
-  languageButtonsEl.addEventListener("click", buttonClickHandler);
-  
