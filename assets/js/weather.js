@@ -6,6 +6,7 @@ var cityWind = document.querySelector("#cityWind");
 var cityUV = document.querySelector("#cityUV");
 var cityIcon = document.querySelector("#cityIcon");
 var savedCities = document.querySelector("#savedCities");
+var firstDate = document.querySelector("#date1");
 var cityname;
 var citySubmitHandler = function (event) {
 
@@ -18,6 +19,7 @@ var citySubmitHandler = function (event) {
     if (cityname) {
         console.log(cityname);
         getWeather(cityname);
+        getFiveDay(cityname);
         cityInputEl.value = "";
 
     } else {
@@ -35,9 +37,7 @@ var getWeather = function () {
     // format the api url
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=e163478ea3e20c4862d83fd871a92ec2&units=imperial`;
     // var apiForUV = https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key} ** need to get lat and long
-
-
-    // done up to here?
+   
 
     // make a get request to url
     fetch(apiUrl)
@@ -49,12 +49,12 @@ var getWeather = function () {
                     cities.push(cityname);
                     localStorage.setItem("cities", JSON.stringify(cities));
                     cityNameP.innerHTML = [data.name]
-                    // cityIcon.innerHTML = [data.weather[4]] *** How to get icon??
-             cityTemp.innerHTML = [data.main.temp] 
-           cityWind.innerHTML = [data.wind.speed]
-           // cityUV.innerHTML = [data.]
-           // date???
-            console.log(JSON.parse(localStorage.getItem("cities")));
+                    cityIcon.innerHTML = JSON.parse[data.weather[0].icon]
+                    cityTemp.innerHTML = [data.main.temp]
+                    cityWind.innerHTML = [data.wind.speed]
+                    // cityUV.innerHTML = [data.]
+                    // date???
+                    // console.log(JSON.parse(localStorage.getItem("cities")));
 
                 });
             } else {
@@ -66,3 +66,22 @@ var getWeather = function () {
         });
 };
 
+var getFiveDay = function () {
+    var apiFiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=e163478ea3e20c4862d83fd871a92ec2&units=imperial`;
+    fetch(apiFiveDay)
+    .then(function (response) {
+        // request was successful
+        if (response.ok) {
+            response.json().then(function (data) {
+                console.log(data);
+                cities.push(cityname);
+                // firstDate.innerHTML = 
+            });
+        } else {
+            alert("Error: " + response.statusText);
+        }
+    })
+    .catch(function (error) {
+        alert("Unable to connect");
+    });
+}
