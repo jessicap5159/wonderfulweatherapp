@@ -12,17 +12,19 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
 
-User enters city name into input field
-User clicks search button
-City name is captured and sent to function to get API
-City name is saved in search history
-City name is displayed on page
-Results of API are displayed on page
 
 Still need help with:
-Displaying icon
-UV index
-Saving cities
+Displaying date
 
-To-Do: 
+UV index
+if /else if/ else
+if data.value < 3
+change css class to "success"
+else if data.value < 7 
+change to "warning"
+else change css class to "danger"
+
 5-day
+
+Saving cities
+       
