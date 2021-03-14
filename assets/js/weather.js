@@ -7,7 +7,8 @@ var cityWind = document.querySelector("#cityWind");
 var cityUV = document.querySelector("#cityUV");
 var cityIcon = document.querySelector("#cityIcon");
 var savedCities = document.querySelector("#savedCities");
-// var firstDay = document.querySelector("#date1");
+
+var firstHumidity = document.querySelector("#humidity1")
 var citiesArray = [];
 
 function displayDate() {
@@ -15,6 +16,22 @@ var currentDate = document.getElementById("date");
 currentDate.textContent = moment().format("M/DD/YYYY");
 }
 
+function forecastDates() {
+    var dateOne = document.getElementById("date1")
+    dateOne.textContent = moment().add(1, "d").format("M/DD/YYYY");
+    
+    var dateTwo = document.getElementById("date2")
+    dateTwo.textContent = moment().add(2, "d").format("M/DD/YYYY");
+
+    var dateThree = document.getElementById("date3")
+    dateThree.textContent = moment().add(3, "d").format("M/DD/YYYY");
+
+    var dateFour = document.getElementById("date4")
+    dateFour.textContent = moment().add(4, "d").format("M/DD/YYYY");
+
+    var dateFive = document.getElementById("date5")
+    dateFive.textContent = moment().add(5, "d").format("M/DD/YYYY");
+}
 
 
 // if (cities.length > 0) {
@@ -32,6 +49,7 @@ var citySubmitHandler = function (event) {
         getWeather(cityname);
         getFiveDay(cityname);
       displayDate(); 
+      forecastDates();
         // getUV(lat,long);
         cityInputEl.value = "";
         
@@ -88,7 +106,28 @@ var getFiveDay = function () {
                 response.json().then(function (data) {
                     console.log(data);
                     cities.push(cityname);
-                    // firstDay.innerHTML = 
+                    document.getElementById("icon1").src = "http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png"; 
+                    temp1.innerHTML = [data.list[4].main.temp] + "&#8457"
+                    humidity1.innerHTML = [data.list[4].main.humidity] + "%"
+
+                    document.getElementById("icon2").src = "http://openweathermap.org/img/w/" + data.list[12].weather[0].icon + ".png"; 
+                    temp2.innerHTML = [data.list[12].main.temp] + "&#8457"
+                    humidity2.innerHTML = [data.list[12].main.humidity] + "%"
+
+
+                    document.getElementById("icon3").src = "http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png"; 
+                    temp3.innerHTML = [data.list[16].main.temp] + "&#8457"
+                    humidity3.innerHTML = [data.list[16].main.humidity] + "%"
+
+
+                    document.getElementById("icon4").src = "http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png"; 
+                    temp4.innerHTML = [data.list[24].main.temp] + "&#8457"
+                    humidity4.innerHTML = [data.list[24].main.humidity] + "%"
+
+
+                    document.getElementById("icon5").src = "http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png"; 
+                    temp5.innerHTML = [data.list[32].main.temp] + "&#8457"
+                    humidity5.innerHTML = [data.list[32].main.humidity] + "%"
                 });
             } else {
                 alert("Error: " + response.statusText);
