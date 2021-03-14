@@ -107,27 +107,27 @@ var getFiveDay = function () {
                     console.log(data);
                     cities.push(cityname);
                     document.getElementById("icon1").src = "http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png"; 
-                    temp1.innerHTML = [data.list[4].main.temp] + "&#8457"
-                    humidity1.innerHTML = [data.list[4].main.humidity] + "%"
+                    temp1.innerHTML = "Temp: " + [data.list[4].main.temp] + "&#8457"
+                    humidity1.innerHTML = "Humidity: " + [data.list[4].main.humidity] + "%"
 
                     document.getElementById("icon2").src = "http://openweathermap.org/img/w/" + data.list[12].weather[0].icon + ".png"; 
-                    temp2.innerHTML = [data.list[12].main.temp] + "&#8457"
-                    humidity2.innerHTML = [data.list[12].main.humidity] + "%"
+                    temp2.innerHTML = "Temp: " + [data.list[12].main.temp] + "&#8457"
+                    humidity2.innerHTML = "Humidity: " + [data.list[12].main.humidity] + "%"
 
 
                     document.getElementById("icon3").src = "http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png"; 
-                    temp3.innerHTML = [data.list[16].main.temp] + "&#8457"
-                    humidity3.innerHTML = [data.list[16].main.humidity] + "%"
+                    temp3.innerHTML = "Temp: " + [data.list[16].main.temp] + "&#8457"
+                    humidity3.innerHTML = "Humidity: " + [data.list[16].main.humidity] + "%"
 
 
                     document.getElementById("icon4").src = "http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png"; 
-                    temp4.innerHTML = [data.list[24].main.temp] + "&#8457"
-                    humidity4.innerHTML = [data.list[24].main.humidity] + "%"
+                    temp4.innerHTML = "Temp: " + [data.list[24].main.temp] + "&#8457"
+                    humidity4.innerHTML = "Humidity: " + [data.list[24].main.humidity] + "%"
 
 
                     document.getElementById("icon5").src = "http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png"; 
-                    temp5.innerHTML = [data.list[32].main.temp] + "&#8457"
-                    humidity5.innerHTML = [data.list[32].main.humidity] + "%"
+                    temp5.innerHTML = "Temp: " + [data.list[32].main.temp] + "&#8457"
+                    humidity5.innerHTML = "Humidity: " + [data.list[32].main.humidity] + "%"
                 });
             } else {
                 alert("Error: " + response.statusText);
