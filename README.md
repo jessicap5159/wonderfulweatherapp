@@ -1,30 +1,24 @@
-# wonderfulweatherapp
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+# Wonderful Weather App
+
+## Purpose/Description
+
+This application was created to display the current weather (including temperature, wind speed, humidity, and UV index) in a given city, plus a five-day forecast for the same city. Searched cities are stored in a list on the left of the user's screen, so that the user can return to and view the weather for that city again later. Useful for travelers, or anyone who is curious about the weather. 
+
+![screen shot of Wonderful Weather App](./images/screenshot.png)
 
 
+## Built With
 
-Still need help with:
+HTML, CSS, and JavaScript
 
+## Website
 
-UV index
-if /else if/ else
-if data.value < 3
-change css class to "success"
-else if data.value < 7 
-change to "warning"
-else change css class to "danger"
+https://jessicap5159.github.io/wonderfulweatherapp/
 
+## Credits
+THANK YOU to John Baxter, Artur Markov, Megan Close, Mason McGinley, Shelby Jordan, Roosevelt Jointer, and Aaron Quach; also openweathermap.org, digitalocean.com, stackoverflow.com, bulletpointsymbol.com, and w3schools.com.
 
 
-Saving cities
-       
+## License
+
+https://www.gnu.org/licenses/gpl-3.0.html
