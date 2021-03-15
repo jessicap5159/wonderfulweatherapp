@@ -20,7 +20,7 @@ function refreshSaveList() {
     savedCities.innerHTML = ""
     // create h6 Saved Cities
     var title = document.createElement("h6");
-    title.innerText = "Saved Cities";
+    title.innerText = "Saved Cities:";
     savedCities.appendChild(title);
     // load saved cities from local storage
     var cities = JSON.parse(localStorage.getItem("cities")) || [];
@@ -31,9 +31,11 @@ console.log(cities);
         var newButton = document.createElement("button");
         newButton.innerText = city;
         newButton.addEventListener("click", cityList);
+        newButton.setAttribute("class", "button");
         // newButton.addEventListener("click", citySubmitHandler);
 
         savedCities.appendChild(newButton);
+        
     }
     // append to div
 }
@@ -155,6 +157,14 @@ var getFiveDay = function () {
                                 response.json().then(function (data){
                                     console.log(data);
                                     cityUV.innerHTML = data.current.uvi
+                                    if (data.current.uvi <= 2) {
+                                        document.getElementById("cityUV").setAttribute("class", "favorable");
+                                    } else if (data.current.uvi > 2 && data.currentuvi <= 5) {
+                                        document.getElementById("cityUV").setAttribute("class","moderate");
+                                    } else {
+                                        document.getElementById("cityUV").setAttribute("class","severe");
+                                    }
+                                    
                                     
                                 })
                                 
@@ -165,6 +175,9 @@ var getFiveDay = function () {
                 
                  
                     };
+
+                  
+                    
                     getUV();
                         
                 
