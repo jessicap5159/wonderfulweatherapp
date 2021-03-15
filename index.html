@@ -6,50 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    
+
     <title>Wonderful Weather</title>
 </head>
 
 <body>
-    <h1 class="p-3 mb-2 bg-primary text-white" >Weather Dashboard</h1>
-    <input type="text" id="mySearch"  placeholder="Search for a city..." title="Type in a category">
+    <h1 class="p-3 mb-2 bg-primary text-white">Weather Dashboard</h1>
+    <input type="text" id="mySearch" placeholder="Search for a city..." title="Type in a category">
     <button type="button" class="btn btn-primary" id="btn"> <i class="fas fa-search-location"></i> Go</button>
-<div id="savedCities">
-<h6>Saved Cities:</h6>
 
-</div>
-<main>
-    <div class="card w-50 mx-auto" id="current-city">
-        <div class="card-body">
-          <h5 class="card-title">Current City:</h5>
-          <p> <span id="cityName"></span>  <span id="date"></span></p>   <img id="wicon" src="" alt="Weather icon">
+    <div id="savedCities">
+        <h6>Saved Cities:</h6>
 
-          <h6>Temperature (&#8457):</h6><p id="cityTemp"></p>
-          <h6>Humidity (%):</h6><p id="cityHumid"></p>
-          <h6>Wind Speed (mph):</h6><p id="cityWind"></p>
-          <p id="cityUV"></p>
-          <h6>UV Index:</h6><p id="cityUV"></p>
-        
+    </div>
+    <main>
+        <div class="card w-50 mx-auto" id="current-city">
+            <div class="card-body">
+                <h5 class="card-title">Current City:</h5>
+                <p> <span id="cityName"></span> <span id="date"></span></p> <img id="wicon" src="" alt="Weather icon">
+
+                <h6>Temperature (&#8457):</h6>
+                <p id="cityTemp"></p>
+                <h6>Humidity (%):</h6>
+                <p id="cityHumid"></p>
+                <h6>Wind Speed (mph):</h6>
+                <p id="cityWind"></p>
+                
+                <h6>UV Index:</h6>
+                <p id="cityUV"></p>
+
+            </div>
         </div>
-      </div>
-      
-      <div class="card w-50 mx-auto " id="forecast">
-        <div class="card-body">
-          <h5 class="card-title">5-Day Forecast:</h5>
-          <h6> <span id="date1"></span> </h6> <p><img id="icon1" src="" alt="Weather icon"><span id="temp1"></span> <span id="humidity1"></span>  </p> 
-          <h6> <span id="date2"></span> </h6><p><img id="icon2" src="" alt="Weather icon"><span id="temp2"></span> <span id="humidity2"></span>  </p> 
-          <h6> <span id="date3"></span> </h6><p><img id="icon3" src="" alt="Weather icon"><span id="temp3"></span> <span id="humidity3"></span> </p> 
-          <h6> <span id="date4"></span> </h6><p><img id="icon4" src="" alt="Weather icon"><span id="temp4"></span> <span id="humidity4"></span> </p> 
-          <h6> <span id="date5"></span> </h6><p><img id="icon5" src="" alt="Weather icon"><span id="temp5"></span> <span id="humidity5"></span> </p> 
+
+        <div class="card w-50 mx-auto " id="forecast">
+            <div class="card-body">
+                <h5 class="card-title">5-Day Forecast:</h5>
+                <h6> <span id="date1"></span> </h6>
+                <p><img id="icon1" src="" alt="Weather icon"><span id="temp1"></span> <span id="humidity1"></span> </p>
+                <h6> <span id="date2"></span> </h6>
+                <p><img id="icon2" src="" alt="Weather icon"><span id="temp2"></span> <span id="humidity2"></span> </p>
+                <h6> <span id="date3"></span> </h6>
+                <p><img id="icon3" src="" alt="Weather icon"><span id="temp3"></span> <span id="humidity3"></span> </p>
+                <h6> <span id="date4"></span> </h6>
+                <p><img id="icon4" src="" alt="Weather icon"><span id="temp4"></span> <span id="humidity4"></span> </p>
+                <h6> <span id="date5"></span> </h6>
+                <p><img id="icon5" src="" alt="Weather icon"><span id="temp5"></span> <span id="humidity5"></span> </p>
+            </div>
         </div>
-      </div>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
     <script src="./assets/js/weather.js"></script>
-   
+
 </body>
 
 </html>

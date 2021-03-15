@@ -14,7 +14,7 @@ THEN I am again presented with current and future conditions for that city
 
 
 Still need help with:
-Displaying date
+
 
 UV index
 if /else if/ else
@@ -24,7 +24,7 @@ else if data.value < 7
 change to "warning"
 else change css class to "danger"
 
-5-day
+
 
 Saving cities
        

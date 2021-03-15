@@ -14,3 +14,19 @@ input {
     margin-left: 20px;
     margin-top: 30px;
 }
+
+.favorable
+{
+    color: white;
+    background-color: green;
+}
+
+.moderate {
+    color: white;
+    background-color: yellow;
+}
+
+.severe {
+    color: white;
+    background-color: red;
+}
